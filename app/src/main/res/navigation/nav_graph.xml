@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/baseFragment">
+
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="uz.umarov.translateapp.presentation.screens.BaseFragment"
+        android:label="BaseFragment"
+        tools:layout="@layout/fragment_base">
+        <action
+            android:id="@+id/action_baseFragment_to_searchBottomSheet"
+            app:destination="@id/searchBottomSheet" />
+        <action
+            android:id="@+id/action_baseFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_baseFragment_to_uzbEngFragment"
+            app:destination="@id/uzbEngFragment" />
+        <action
+            android:id="@+id/action_baseFragment_to_engUzbFragment"
+            app:destination="@id/engUzbFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/engUzbFragment"
+        android:name="uz.umarov.translateapp.presentation.screens.EngUzbFragment"
+        android:label="EngUzbFragment"
+        tools:layout="@layout/fragment_eng_uzb" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="uz.umarov.translateapp.presentation.screens.FavouritesFragment"
+        android:label="FavouritesFragment"
+        tools:layout="@layout/fragment_favourites">
+        <action
+            android:id="@+id/action_favouritesFragment_to_baseFragment"
+            app:destination="@id/baseFragment"
+            app:popUpTo="@id/favouritesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/searchBottomSheet"
+        android:name="uz.umarov.translateapp.presentation.screens.SearchBottomSheet"
+        android:label="SearchBottomSheet"
+        tools:layout="@layout/fragment_search_bottom_sheet_list_dialog" />
+    <fragment
+        android:id="@+id/uzbEngFragment"
+        android:name="uz.umarov.translateapp.presentation.screens.UzbEngFragment"
+        android:label="UzbEngFragment"
+        tools:layout="@layout/fragment_uzb_eng" />
+</navigation>
